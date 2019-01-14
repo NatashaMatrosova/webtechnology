@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Lab1</title>
+    <style>
+        @media screen and (max-width: 768px) {
+            #text {display: block !important;}
+            #menu>div>div {display: inline-block}
+            #footer {flex-direction: column; height: 150px !important;}
+        }
+    </style>
+</head>
+<body id="body" style="max-width: 768px; margin: auto">
+    <div id="header" style="background-color: lightskyblue; height: 50px">Header</div>
+    <div id="text" style="display: flex">
+        <div id="menu" style="padding: 4px; background-color: royalblue; flex: 0 150px">
+            <div>
+                <div style="background-color: yellow; margin-bottom: 5px">Lorem, ipsum.</div>
+                <div style="background-color: yellow; margin-bottom: 5px">Velit, nulla?</div>
+                <div style="background-color: yellow; margin-bottom: 5px">A, alias.</div>
+                <div style="background-color: yellow; margin-bottom: 5px">Aperiam, id.</div>
+                <div style="background-color: yellow">Tenetur, ipsum!</div>
+            </div>
+        </div>
+        <div id="content" style="flex: 1; position: relative">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim nulla aliquet porttitor lacus luctus. In cursus turpis massa tincidunt dui ut. Rhoncus est pellentesque elit ullamcorper dignissim. Morbi tristique senectus et netus et malesuada. Felis eget nunc lobortis mattis aliquam faucibus purus in. Tellus in hac habitasse platea. Enim nec dui nunc mattis enim ut tellus. Amet consectetur adipiscing elit duis tristique. Dictum at tempor commodo ullamcorper a lacus vestibulum. Fermentum et sollicitudin ac orci phasellus egestas tellus.
+            Neque egestas congue quisque egestas. Duis ut diam quam nulla porttitor massa. Dictum fusce ut placerat orci nulla. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas. Sed libero enim sed faucibus turpis in eu mi. Et tortor at risus viverra adipiscing. Tincidunt eget nullam non nisi est sit amet facilisis. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Elementum nisi quis eleifend quam adipiscing vitae proin. Sed augue lacus viverra vitae. Massa eget egestas purus viverra accumsan.
+            <div id="centered" style="background-color: mediumturquoise; opacity: 0.8; position: absolute; width: 100px; height: 100px; left: 50%; top: 50%; transform: translate(-50%, -50%)">Lorerm ipsum</div>
+        </div>
+    </div>
+    <div id="footer" style="height: 50px; display: flex">
+        <div style="background-color: darkcyan; flex: 1">Box-1</div>
+        <div style="background-color: limegreen; flex: 1">Box-2</div>
+        <div style="background-color: lawngreen; flex: 1">Box-3</div>
+    </div>
+</body>
+</html>

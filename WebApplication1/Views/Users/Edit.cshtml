@@ -1,0 +1,25 @@
+﻿@model ApplicationUser
+
+@{
+    ViewBag.Title = "Редактирование пользователя";
+    Layout = "_Layout";
+}
+
+<h1>Редактирование пользователя</h1>
+<form asp-action="Edit" method="post">
+    <div> 
+        Email<input asp-for="@Model.Email" type="text" value="@Model.Email" />
+    </div>
+    <div>
+        Фамилия<input asp-for="@Model.Familiya" type="text" value="@Model.Familiya" />
+    </div>
+    <div>
+        Имя<input asp-for="@Model.Imya" type="text" value="@Model.Imya" />
+    </div>
+    <div>
+        Отчество<input asp-for="@Model.Otchestvo" type="text" value="@Model.Otchestvo" />
+    </div>
+    <div>
+        <button type="submit">Сохранить</button>
+    </div>
+</form>

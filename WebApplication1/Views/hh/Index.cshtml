@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Лабораторная работа 5";
+    Layout = "_Layout";
+}
+
+<h1>Лабораторная работа 5</h1>
+
+<div>
+    <div>Названия профессий в вакансиях, объявленная зарплата которых привышает либо равна 120000 руб:</div>
+    @foreach (var professia in ViewBag.nazvaniaProfesiiyBolshe120000)
+    {
+        <div>@professia</div>
+    }
+</div>
+<div>
+    <div>Названия профессий в вакансиях, объявленная зарплата которых менее 15000 руб:</div>
+    @foreach (var professia in ViewBag.nazvaniaProfesiiyDo15000)
+    {
+        <div>@professia</div>
+    }
+</div>
+<div>
+    <div>Названия ключивых навыков в вакансиях, объявленная зарплата которых привышает либо равна 120000 руб:</div>
+    @foreach (var naviki in ViewBag.nazvaniaNavikovBolshe120000)
+    {
+        <div>@naviki</div>
+    }
+</div>
+<div>
+    <div>Названия ключивых навыков в вакансиях, объявленная зарплата которых менее 15000 руб:</div>
+    @foreach (var naviki in ViewBag.nazvaniaNavikovDo15000)
+    {
+        <div>@naviki</div>
+    }
+</div>

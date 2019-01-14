@@ -1,0 +1,39 @@
+﻿@model List<ApplicationUser>
+@inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> UserManager
+@{
+    ViewBag.Title = "Управление пользователями";
+    Layout = "_Layout";
+}
+
+<h1>Управление пользователями</h1>
+<a asp-action="Edit">Зарегистрировать</a>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Email</th> 
+            <th>ФИО</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr> 
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id">Ред.</a>
+                    <a asp-action="Remove" asp-route-id="@user.Id">Уд.</a>
+                    @if (await UserManager.IsInRoleAsync(user, "Admin"))
+                    {
+                        <a asp-action="ToggleAdmin" asp-route-id="@user.Id">Забрать права администратора</a>
+                    }
+                    else
+                    {
+                        <a asp-action="ToggleAdmin" asp-route-id="@user.Id">Сделать администратором</a>
+                    } 
+                </td>
+                <td>@user.Email</td>
+                <td>@user.Familiya @user.Imya @user.Otchestvo</td> 
+            </tr>
+        }
+    </tbody>
+</table>

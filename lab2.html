@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>Lab2</title>
+</head>
+<body id="body">
+    <canvas id="canvas" width="1288" height="750"></canvas> 
+    <script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    var pole = [];
+    var sleduyusheePole = [];
+    for (var x=0; x<1288/10; x++) {
+        pole[x] = [];
+        sleduyusheePole[x] =[];
+        for (var y = 0; y < 750/10; y++) {
+            pole[x][y] = false;
+            sleduyusheePole[x][y]= false;
+        }
+    }
+   
+    for (var x=0; x<1288/10; x++) {
+        for (var y=0; y<750/10; y++) {
+            pole[x][y] = Math.random()>0.5;
+            if (pole[x][y])
+                context.fillRect(x*10, y*10, 11, 11);
+        }
+    }
+     
+    setInterval(() => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.beginPath();
+        context.lineWidth = 1;
+        context.strokeStyle = "grey";
+        for (var x =0; x<=750/10; x++) {
+            context.moveTo(0, x*10);
+            context.lineTo(canvas.width,x*10);
+        }
+        for (var y=0; y<= 1288/10; y++) {
+            context.moveTo(y*10,0);
+            context.lineTo(y*10,canvas.height);
+        }
+        context.stroke()
+
+        for (var x=0; x<1288/10; x++) {
+            for (var y=0; y<750/10; y++) {
+                if (pole[x][y]) {
+                    context.fillRect(x*10, y*10, 11, 11);
+                }
+            }
+        }
+
+        for (var x=0; x<1288/10; x++) {
+            for (var y=0; y<750/10; y++) {
+                var sosedi = 0;
+                if (x>0 && y>0 && pole[x-1][y-1])
+                    sosedi++;
+                if (y>0 && pole[x][y-1])
+                    sosedi++;
+                if (x<1288/10-1 && y>0 && pole[x+1][y-1])
+                    sosedi++;
+                if (x>0 && pole[x-1][y])
+                    sosedi++;
+                if (x<1288/10-1 && pole[x+1][y])
+                    sosedi++;
+                if (x>0 && y<750/10-1 && pole[x-1][y+1])
+                    sosedi++;
+                if (y<750/10-1 && pole[x][y+1])
+                    sosedi++;
+                if (x<1288/10-1 && y<750/10-1 && pole[x+1][y+1])
+                    sosedi++;
+
+                var vizhivaet = false;
+                if (pole[x][y] && sosedi<2)
+                    vizhivaet = false;
+                else if (pole[x][y] && sosedi==2|| sosedi==3)
+                    vizhivaet = true;
+                else if (pole[x][y] && sosedi>3)
+                    vizhivaet = false;
+                else if (!pole[x][y] && sosedi==3)
+                    vizhivaet = true;
+                
+                sleduyusheePole[x][y] = vizhivaet;
+            }
+        }
+         
+        for (var x=0; x<1288/10; x++) {
+            for (var y=0; y<750/10; y++) {
+                pole[x][y] = sleduyusheePole[x][y];
+            }
+        }
+    }, 100);
+    
+    </script> 
+</body>
+</html>
